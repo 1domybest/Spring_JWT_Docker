@@ -185,7 +185,7 @@ jobs:
           host: ${{ secrets.SPRING_BOOT_DOCKER_IP }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            URL="http://${{ secrets.SPRING_BOOT_DOCKER_IP }}:${{env.STOPPED_PORT}}/env"
+            URL="http://localhost:${{env.STOPPED_PORT}}/env"
             MAX_ATTEMPTS=3
             RETRY_DELAY=10
             ATTEMPT=1
