@@ -119,6 +119,7 @@ public class SecurityConfig {
         http.httpBasic((auth) -> auth.disable());
 
         http.authorizeHttpRequests((auth) -> auth
+                .requestMatchers("/hc", "/env").permitAll() // 무중단 배포용
                 .requestMatchers("/login", "/", "/join").permitAll() // 허용
                 .requestMatchers("/admin").hasRole("ADMIN")
                 .requestMatchers("/reissue").permitAll()
