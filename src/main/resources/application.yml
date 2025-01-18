@@ -5,7 +5,7 @@ spring:
     group:
       local: local, common, local_secret
       blue: blue, common, blue_secret
-      green: blue, common, green_secret
+      green: green, common, green_secret
 
   config:
     import: application-secret.yml
