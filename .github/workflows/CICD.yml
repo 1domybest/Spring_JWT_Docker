@@ -172,7 +172,7 @@ jobs:
         with:
           # 현재 EC2 아이피 + hc[건강체크] + 방금 연 서버이름 [green or blue] + env 를 체크
           # 포트는 nginx 에서 라우팅할거임
-          url: http://${{ secrets.SPRING_BOOT_DOCKER_IP }}/healthcheck/${{ env.TARGET_UPSTREAM }}/env
+          url: http://${{ secrets.SPRING_BOOT_DOCKER_IP }}/healthcheck/${{ env.TARGET_UPSTREAM }}
           # 최대 3번
           max-attempts: 3
           # 10초 간격으로
@@ -190,24 +190,24 @@ jobs:
 #            RETRY_DELAY=10
 #            ATTEMPT=1
 #            STATUS=0
-#            
+#
 #            while [ $ATTEMPT -le $MAX_ATTEMPTS ]; do
 #            STATUS=$(curl -o /dev/null -w "%{http_code}" "$URL")
 #            echo "Attempt $ATTEMPT: HTTP Status Code: $STATUS"
-#            
+#
 #            if [ "$STATUS" -eq 200 ]; then
 #            echo "Server is up!"
 #            exit 0
 #            fi
-#            
+#
 #            if [ $ATTEMPT -lt $MAX_ATTEMPTS ]; then
 #            echo "Server is down! Retrying in $RETRY_DELAY seconds..."
 #            sleep $RETRY_DELAY
 #            fi
-#            
+#
 #            ATTEMPT=$((ATTEMPT+1))
 #            done
-#            
+#
 #            echo "Server is still down after $MAX_ATTEMPTS attempts!"
 #            exit 1
       # nginx 에있는 파일내에 있는 url 변경하기
